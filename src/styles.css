@@ -3,13 +3,14 @@
 html, body {
   background-color: #a6b8c7;
   font-family: Helvetica, sans-sherif;
-  
 }
 
-header {
+h1, #descritpion {
   text-align: center;
   font-family: 'Kumar One Outline', cursive, Helvetica, sans-sherif;
 }
+
+
 form {
   background-color: #003b6f;
   color: white;
@@ -17,15 +18,36 @@ form {
 }
 
 .personal {
-  padding-top: 2%;
-  text-align: center;
-  justify-content: left;
+  padding-top: 1em;
 }
 
+.details {
+  display: flex;
+  justify-content: center;
+}
+
+.detail + .detail {
+  margin-left: 0.5em;
+}
 
 .radio {
   display: inline-block;
-  justify-content: left;
-  margin-left:0
+  text-align: left;
+  }
+
+.question {
+  display: inline-block;
+  text-align: left;
+  width: 48%;
+  vertical-align: middle;
+} 
+
+.question p{
+  text-align: center
+}
+
+.alignLeft {
+  position: relative;
+  left: 42%;
 }
 

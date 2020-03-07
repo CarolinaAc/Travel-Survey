@@ -51,68 +51,76 @@ class Main extends Component{
             <main>
               <form onSubmit={this.handleSubmit}>
                 <div className="personal">
-                <label>Name: </label>
+                <div className="details">
+                <div className="detail">
+                <label>Name: </label> 
                 <input type="text" name="name" value={this.state.name} onChange={this.handleChange} placeholder="Name" required/>
+                </div>
+                <div className="detail">
                 <label>Age: </label>
-                <input type="number" name="age" value={this.state.age} onChange={this.handleChange} placeholder="Age" required/>
+                <input type="number" name="age" value={this.state.age} onChange={this.handleChange} placeholder="Age" required/>               
+                </div>
+                <div className="detail">
                 <label>Email: </label>
                 <input type="email" name="email" value={this.state.email} onChange={this.handleChange} placeholder="Email" required/><br/>
                 </div>
-                <ul style={{"listStyle": "none"}}>Do you want to travel... <i>(Select the option that applies to you)</i> 
-                  <label><li><input type="radio" 
+                </div>
+                </div>
+                <ul className="question" style={{"listStyle": "none"}}><p>Do you want to travel... <i>(Select the option that applies to you)</i> </p>
+                  <label className="alignLeft"><li><input type="radio" 
                   checked={this.state.departure === "today"} 
                   value="today" 
                   onChange={this.handleChange} 
                   name="departure" required
                   className="radio"/>Today</li></label>
       
-                  <label><li><input type="radio" 
+                  <label className="alignLeft"><li><input type="radio" 
                   checked={this.state.departure === "this week"} 
                   value="this week" 
                   onChange={this.handleChange} 
                   name="departure" 
                   className="radio"/>This week</li></label>
       
-                  <label><li><input type="radio" 
+                  <label className="alignLeft"><li><input type="radio" 
                   checked={this.state.departure === "next week"} 
                   value="next week"
                     onChange={this.handleChange} 
                   name="departure" 
                   className="radio"/>Next week</li></label>
       
-                  <label><li><input type="radio" 
+                  <label className="alignLeft"><li><input type="radio" 
                   checked={this.state.departure === "next month"} 
                   value="next month" 
                   onChange={this.handleChange} 
                   name="departure" 
                   className="radio"/>Next month</li></label>
       
-                  <label><li><input type="radio" 
+                  <label className="alignLeft"><li><input type="radio" 
                   checked={this.state.departure === "next year"} 
                   value="next year" 
                   onChange={this.handleChange} 
                   name="departure" 
                   className="radio"/>Next year</li></label>
                 </ul>
-                <div className="selection">
-                <p>What do you prefer?</p> 
-                <select name="format" value={this.state.format} onChange={this.handleChange} >
+                <div className="details">
+                <p className="detail" >What do you prefer?</p> 
+                <select className="detail" name="format" value={this.state.format} onChange={this.handleChange} >
                   <option disabled value>Select an option</option>
                   <option value="travel through time">Travel through time</option>
                   <option value="travel through space">Travel through space</option>
                   <option value="travel through both time and space">Both</option>
                 </select></div>
                 <br/>
-                <ul className="reasons" style={{"listStyle": "none"}} name="reason">Why do you want to travel?
-                  <label><li><input type="checkbox" name="isPlaces" checked={this.state.reasons.isPlaces} 
+                <ul className="question checkbox" style={{"listStyle": "none"}} name="reason"><p>Why do you want to travel?</p>
+                  <label className="alignLeft"><li><input type="checkbox" name="isPlaces" checked={this.state.reasons.isPlaces} 
                   onChange={this.handleChange} />To see different places</li></label>
-                  <label><li><input type="checkbox" name="isTimes" checked={this.state.reasons.isTimes} 
+                  <label className="alignLeft"><li><input type="checkbox" name="isTimes" checked={this.state.reasons.isTimes} 
                   onChange={this.handleChange} />To see different times</li></label>
-                  <label><li><input type="checkbox" name="isPeople" checked={this.state.reasons.isPeople} 
+                  <label className="alignLeft"><li><input type="checkbox" name="isPeople" checked={this.state.reasons.isPeople} 
                   onChange={this.handleChange} />To meet people</li></label>
-                  <label><li><input type="checkbox" name="isAdventure" checked={this.state.reasons.isAdventure} 
+                  <label className="alignLeft"><li><input type="checkbox" name="isAdventure" checked={this.state.reasons.isAdventure} 
                   onChange={this.handleChange} />To go on an adventure</li></label>
-                  <label><li><input type="checkbox" name="isOther" checked={this.state.reasons.isOther} 
+                  <label className="alignLeft"><li><input type="checkbox" name="isOther" checked={this.state.reasons.isOther} 
                   onChange={this.handleChange} />Other</li></label>
                 </ul><br/>
                 <button >Submit</button>
