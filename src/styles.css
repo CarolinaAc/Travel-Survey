@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css?family=Kumar+One+Outline");
+
+html, body {
+  background-color: #a6b8c7;
+  font-family: Helvetica, sans-sherif;
+  
+}
+
+header {
+  text-align: center;
+  font-family: 'Kumar One Outline', cursive, Helvetica, sans-sherif;
+}
+form {
+  background-color: #003b6f;
+  color: white;
+  text-align: center;
+}
+
+.personal {
+  padding-top: 2%;
+  text-align: center;
+  justify-content: left;
+}
+
+
+.radio {
+  display: inline-block;
+  justify-content: left;
+  margin-left:0
+}
+
