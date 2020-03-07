@@ -121,8 +121,7 @@ class Main extends Component{
               {this.state.submited ? 
               <div>
               <h2>Entered information</h2>
-              <p>I am <b>{this.state.name}</b> and I am <b>{this.state.age}</b>. My email address is <b>{this.state.email}</b>
-                and I want to <b>{this.state.format}</b> with you <b>{this.state.departure}</b></p>
+              <p>I am <b>{this.state.name}</b> and I am <b>{this.state.age}</b>. My email address is <b>{this.state.email}</b> and I want to <b>{this.state.format}</b> with you <b>{this.state.departure}</b></p>
                 {this.state.reasons.isPlaces || this.state.reasons.isTimes || this.state.reasons.isPeople || this.state.reasons.isAdventure || this.state.reasons.isOther ? 
                 <div>
                 <p>The reasons I want to travel with you are:</p> 
