@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Travel-Survey/static/css/main.04619c9d.chunk.css",
+    "main.js": "/Travel-Survey/static/js/main.638608aa.chunk.js",
+    "main.js.map": "/Travel-Survey/static/js/main.638608aa.chunk.js.map",
+    "runtime-main.js": "/Travel-Survey/static/js/runtime-main.94df062e.js",
+    "runtime-main.js.map": "/Travel-Survey/static/js/runtime-main.94df062e.js.map",
+    "static/js/2.d5971143.chunk.js": "/Travel-Survey/static/js/2.d5971143.chunk.js",
+    "static/js/2.d5971143.chunk.js.map": "/Travel-Survey/static/js/2.d5971143.chunk.js.map",
+    "index.html": "/Travel-Survey/index.html",
+    "precache-manifest.8e86dd8473c20238f2f0299afe215c42.js": "/Travel-Survey/precache-manifest.8e86dd8473c20238f2f0299afe215c42.js",
+    "service-worker.js": "/Travel-Survey/service-worker.js",
+    "static/css/main.04619c9d.chunk.css.map": "/Travel-Survey/static/css/main.04619c9d.chunk.css.map",
+    "static/js/2.d5971143.chunk.js.LICENSE.txt": "/Travel-Survey/static/js/2.d5971143.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.94df062e.js",
+    "static/js/2.d5971143.chunk.js",
+    "static/css/main.04619c9d.chunk.css",
+    "static/js/main.638608aa.chunk.js"
+  ]
+}
