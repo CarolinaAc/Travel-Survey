@@ -1,152 +1,249 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
-class Main extends Component{
-    constructor(){
-        super()
-        this.state = {
-          name: "",
-          age: "",
-          email: "",
-          departure: "",
-          format: "",
-          reasons: {
-            isPlaces: false,
-            isTimes: false,
-            isPeople: false,
-            isAdventure: false,
-            isOther: false
-          },
-          submited: false
-        }
-          this.handleChange = this.handleChange.bind(this)
-          this.handleSubmit = this.handleSubmit.bind(this)
-      }
-      
-      handleChange(event) {
-        const {name, value, type, checked} = event.target
-        type === "checkbox" ?
-          this.setState(prevState => {
-            return {
-              reasons: {
-                ...prevState.reasons,
-                [name]: checked
-              }
-            }
-          })
-          : this.setState({[name]: value})
-      }
-      
-      handleSubmit(event){
-        event.preventDefault()
-        this.setState(prevState =>{
-          return {submited: !prevState.submited}
+class Main extends Component {
+  constructor() {
+    super()
+    this.state = {
+      name: '',
+      age: '',
+      email: '',
+      departure: '',
+      format: '',
+      reasons: {
+        isPlaces: false,
+        isTimes: false,
+        isPeople: false,
+        isAdventure: false,
+        isOther: false,
+      },
+      submited: false,
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleChange(event) {
+    const { name, value, type, checked } = event.target
+    type === 'checkbox'
+      ? this.setState((prevState) => {
+          return {
+            reasons: {
+              ...prevState.reasons,
+              [name]: checked,
+            },
+          }
         })
-        console.log(this.state.submited)
-      }
-      
-      
-      render() {
-        return (
-          <div className="App">
-            <main>
-              <form onSubmit={this.handleSubmit}>
-                <div className="personal">
-                <div className="details">
-                <div className="detail">
-                <label>Name: </label> 
-                <input type="text" name="name" value={this.state.name} onChange={this.handleChange} placeholder="Name" required/>
-                </div>
-                <div className="detail">
-                <label>Age: </label>
-                <input type="number" name="age" value={this.state.age} onChange={this.handleChange} placeholder="Age" required/>               
-                </div>
-                <div className="detail">
-                <label>Email: </label>
-                <input type="email" name="email" value={this.state.email} onChange={this.handleChange} placeholder="Email" required/><br/>
-                </div>
-                </div>
-                </div>
-                <ul className="question" style={{"listStyle": "none"}}><p>Do you want to travel... <i>(Select the option that applies to you)</i> </p>
-                  <label className="alignLeft"><li><input type="radio" 
-                  checked={this.state.departure === "today"} 
-                  value="today" 
-                  onChange={this.handleChange} 
-                  name="departure" required
-                  className="radio"/>Today</li></label>
-      
-                  <label className="alignLeft"><li><input type="radio" 
-                  checked={this.state.departure === "this week"} 
-                  value="this week" 
-                  onChange={this.handleChange} 
-                  name="departure" 
-                  className="radio"/>This week</li></label>
-      
-                  <label className="alignLeft"><li><input type="radio" 
-                  checked={this.state.departure === "next week"} 
-                  value="next week"
-                    onChange={this.handleChange} 
-                  name="departure" 
-                  className="radio"/>Next week</li></label>
-      
-                  <label className="alignLeft"><li><input type="radio" 
-                  checked={this.state.departure === "next month"} 
-                  value="next month" 
-                  onChange={this.handleChange} 
-                  name="departure" 
-                  className="radio"/>Next month</li></label>
-      
-                  <label className="alignLeft"><li><input type="radio" 
-                  checked={this.state.departure === "next year"} 
-                  value="next year" 
-                  onChange={this.handleChange} 
-                  name="departure" 
-                  className="radio"/>Next year</li></label>
-                </ul>
-                <div className="details">
-                <p className="detail" >What do you prefer?</p> 
-                <select className="detail" name="format" value={this.state.format} onChange={this.handleChange} >
-                  <option disabled value>Select an option</option>
-                  <option value="travel through time">Travel through time</option>
-                  <option value="travel through space">Travel through space</option>
-                  <option value="travel through both time and space">Both</option>
-                </select></div>
-                <br/>
-                <ul className="question checkbox" style={{"listStyle": "none"}} name="reason"><p>Why do you want to travel?</p>
-                  <label className="alignLeft"><li><input type="checkbox" name="isPlaces" checked={this.state.reasons.isPlaces} 
-                  onChange={this.handleChange} />To see different places</li></label>
-                  <label className="alignLeft"><li><input type="checkbox" name="isTimes" checked={this.state.reasons.isTimes} 
-                  onChange={this.handleChange} />To see different times</li></label>
-                  <label className="alignLeft"><li><input type="checkbox" name="isPeople" checked={this.state.reasons.isPeople} 
-                  onChange={this.handleChange} />To meet people</li></label>
-                  <label className="alignLeft"><li><input type="checkbox" name="isAdventure" checked={this.state.reasons.isAdventure} 
-                  onChange={this.handleChange} />To go on an adventure</li></label>
-                  <label className="alignLeft"><li><input type="checkbox" name="isOther" checked={this.state.reasons.isOther} 
-                  onChange={this.handleChange} />Other</li></label>
-                </ul><br/>
-                <button >Submit</button>
-              </form>  
-              <hr />
-              {this.state.submited ? 
-              <div>
-              <h2>Entered information</h2>
-              <p>I am <b>{this.state.name}</b> and I am <b>{this.state.age}</b>. My email address is <b>{this.state.email}</b> and I want to <b>{this.state.format}</b> with you <b>{this.state.departure}</b></p>
-                {this.state.reasons.isPlaces || this.state.reasons.isTimes || this.state.reasons.isPeople || this.state.reasons.isAdventure || this.state.reasons.isOther ? 
-                <div>
-                <p>The reasons I want to travel with you are:</p> 
-                <ul>
-                  {this.state.reasons.isPlaces ? <li>To see different places</li> : null}
-                  {this.state.reasons.isTimes ? <li>To see different times</li> : null}
-                  {this.state.reasons.isPeople ? <li>To meet people</li> : null}
-                  {this.state.reasons.isAdventure ? <li>To go on an adventure</li> : null}
-                  {this.state.reasons.isOther ? <li>Other reasons</li> : null}
-                </ul>
-                </div>  : <h3>I really hope we can travel together soon!</h3>}
-              </div>
-                : null}
-            </main>
-          </div>
-        )
-      }
+      : this.setState({ [name]: value })
+  }
+
+  handleSubmit(event) {
+    event.preventDefault()
+    this.setState((prevState) => {
+      return { submited: !prevState.submited }
+    })
+    console.log(this.state.submited)
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <div className='form-group'>
+          <label id='name-label' for='name'>
+            Name
+          </label>
+          <input
+            type='text'
+            name='name'
+            id='name'
+            className='form-control'
+            value={this.state.name}
+            onChange={this.handleChange}
+            placeholder='Enter your name'
+            required
+          />
+        </div>
+        <div className='form-group'>
+          <label id='email-label' for='email'>
+            Email
+          </label>
+          <input
+            type='email'
+            name='email'
+            id='email'
+            className='form-control'
+            value={this.state.email}
+            onChange={this.handleChange}
+            placeholder='Enter your Email'
+            required
+          />
+        </div>
+        <div className='form-group'>
+          <label id='number-label' for='number'>
+            Age<span className='clue'>(optional)</span>
+          </label>
+          <input
+            type='number'
+            name='age'
+            id='number'
+            min='10'
+            max='99'
+            className='form-control'
+            value={this.state.age}
+            onChange={this.handleChange}
+            placeholder='Age'
+          />
+        </div>
+        <div className='form-group'>
+          <p>What do you prefer?</p>
+          <select
+            name='format'
+            value={this.state.format}
+            onChange={this.handleChange}
+            className='form-control'
+            required
+          >
+            <option disabled selected value>
+              Select an option
+            </option>
+            <option value='travel through time'>Travel through time</option>
+            <option value='travel through space'>Travel through space</option>
+            <option value='travel through both time and space'>Both</option>
+          </select>
+        </div>
+        <div className='form-group'>
+          <p> Do you want to travel...</p>
+          <label>
+            <input
+              type='radio'
+              value='today'
+              checked={this.state.departure === 'today'}
+              onChange={this.handleChange}
+              name='departure'
+              className='input-radio'
+            />
+            Today
+          </label>
+          <label>
+            <input
+              type='radio'
+              value='this week'
+              checked={this.state.departure === 'this week'}
+              onChange={this.handleChange}
+              name='departure'
+              className='input-radio'
+            />
+            This week
+          </label>
+
+          <label>
+            <input
+              type='radio'
+              value='next week'
+              checked={this.state.departure === 'next week'}
+              onChange={this.handleChange}
+              name='departure'
+              className='input-radio'
+            />
+            Next week
+          </label>
+
+          <label>
+            <input
+              type='radio'
+              value='next month'
+              checked={this.state.departure === 'next month'}
+              onChange={this.handleChange}
+              name='departure'
+              className='input-radio'
+            />
+            Next month
+          </label>
+
+          <label>
+            <input
+              type='radio'
+              value='next year'
+              checked={this.state.departure === 'next year'}
+              onChange={this.handleChange}
+              name='departure'
+              className='input-radio'
+            />
+            Next year
+          </label>
+        </div>
+        <div className='form-group'>
+          <p>
+            Why do you want to travel?{' '}
+            <span className='clue'>(Check all that apply)</span>
+          </p>
+
+          <label>
+            <input
+              type='checkbox'
+              name='isPlaces'
+              checked={this.state.reasons.isPlaces}
+              onChange={this.handleChange}
+              className='input-checkbox'
+            />
+            To see different places
+          </label>
+          <label>
+            <input
+              type='checkbox'
+              name='isTimes'
+              checked={this.state.reasons.isTimes}
+              onChange={this.handleChange}
+              className='input-checkbox'
+            />
+            To see different times
+          </label>
+          <label>
+            <input
+              type='checkbox'
+              name='isPeople'
+              checked={this.state.reasons.isPeople}
+              onChange={this.handleChange}
+              className='input-checkbox'
+            />
+            To meet people
+          </label>
+          <label>
+            <input
+              type='checkbox'
+              name='isAdventure'
+              checked={this.state.reasons.isAdventure}
+              onChange={this.handleChange}
+              className='input-checkbox'
+            />
+            To go on an adventure
+          </label>
+          <label>
+            <input
+              type='checkbox'
+              name='isOther'
+              checked={this.state.reasons.isOther}
+              onChange={this.handleChange}
+              className='input-checkbox'
+            />
+            Other
+          </label>
+        </div>
+        <div className='form-group'>
+          <p>Your Motto?</p>
+          <textarea
+            className='input-textarea'
+            name='motto'
+            placeholder="Allon's y!? Geronimo!?"
+          ></textarea>
+        </div>
+        <div class='form-group'>
+          <button type='submit' id='submit' class='submit-button'>
+            Submit
+          </button>
+        </div>
+      </form>
+    )
+  }
 }
 
 export default Main
